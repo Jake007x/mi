@@ -358,24 +358,6 @@ export default function Dashboard() {
               <th>Create At</th>
             </tr>
           </thead>
-          <tbody>
-            {lastData.map((ldata) => (
-              <tr key={ldata.id}>
-                <td>{ldata.id}</td>
-                <td>{ldata.ldr}</td>
-                <td>{ldata.vr}</td>
-                <td>{ldata.temp}</td>
-                <td>{ldata.distance}</td>
-                <td>
-                  {new Date(ldata.date).toLocaleString("th-TH", {
-                    timeZone: "Asia/Bangkok",
-                    dateStyle: "short",
-                    timeStyle: "short",
-                  })}
-                </td>
-              </tr>
-            ))}
-          </tbody>
         </table>
       </div>
     </div>
