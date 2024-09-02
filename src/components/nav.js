@@ -70,7 +70,7 @@ const Navbar = () => {
               <Link className={`nav-link ${styles.navLink}`} href="./">Dashboard</Link>
             </li>
             <li className="nav-item">
-              <Link className={`nav-link ${styles.navLink}`} href="/History">History</Link>
+              <Link className={`nav-link ${styles.navLink}`} href="/History">Historys</Link>
             </li>
           </ul>
           <form className="d-flex align-items-center">
