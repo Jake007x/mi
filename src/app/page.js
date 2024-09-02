@@ -328,7 +328,7 @@ export default function Dashboard() {
         {attackCount !== null ? (
           <p className={`${styles.attackCount} text-center`}>{attackCount}</p>
         ) : (
-          <p>Loading attack data...</p>
+          <p></p>
         )}
       </div>
 
