@@ -1,4 +1,15 @@
-/* Button Styles */
+/* nav.module.css */
+.navbarLogo {
+  height: 100px; /* Adjust the height as needed */
+  width: auto;  /* Maintain aspect ratio */
+}
+
+
+.navbarCustom {
+  background-image: linear-gradient(to right top, #218cb1, #669fc3, #93b2d3, #bac7e0, #dbdeed, #e2e2f4, #eae6fa, #f3eaff, #efd9ff, #eec7ff, #f0b4fb, #f49ff4);
+  /* Dark background for the navbar */
+}
+
 .btnCustom, .btnDanger {
   color: #ffffff; /* Text color white */
   padding: 10px 25px;
@@ -11,7 +22,7 @@
 
 /* Custom Button */
 .btnCustom {
-  background-color: #0a74da; /* Primary Blue */
+  background-color: #e100ff; /* Primary Blue */
 }
 
 .btnCustom:hover {

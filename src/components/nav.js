@@ -1,8 +1,7 @@
-"use client"; // This makes the component a Client Component
+"use client";
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import Image from "next/image";
 import styles from '../app/nav.module.css';
 
 const notifyUser = (command) => {
@@ -22,8 +21,8 @@ const updateLEDStatus = async (command, setStatus) => {
     const data = await response.json();
 
     if (data.success) {
-      setStatus(command !== 'OFF'); // Update the status based on the command
-      notifyUser(command); // Notify the user of the successful command
+      setStatus(command !== 'OFF');
+      notifyUser(command);
     }
   } catch (error) {
     console.error('Error updating Command:', error);
@@ -40,7 +39,7 @@ const fetchLEDStatus = async (setStatus) => {
     const data = await response.json();
 
     if (data.success) {
-      setStatus(data.isOn); // Assume the response has an `isOn` boolean property
+      setStatus(data.isOn);
     }
   } catch (error) {
     console.error('Error fetching current status:', error);
@@ -51,15 +50,14 @@ const Navbar = () => {
   const [ledStatus, setLEDStatus] = useState(false);
 
   useEffect(() => {
-    // Fetch the current LED status when the component loads
     fetchLEDStatus(setLEDStatus);
   }, []);
 
   return (
     <nav className={`navbar navbar-expand-lg ${styles.navbarCustom}`}>
       <div className="container-fluid">
-        <Link className="navbar-brand d-flex align-items-center" href="./">
-          <span className={styles.navbarBrandText}>Jake</span>
+        <Link className={`navbar-brand d-flex align-items-center ${styles.navbarBrandText}`} href="./">
+          <img src="/a.png" alt="Logo" className={styles.navbarLogo} />
         </Link>
         <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span className="navbar-toggler-icon" />
@@ -70,7 +68,7 @@ const Navbar = () => {
               <Link className={`nav-link ${styles.navLink}`} href="./">Dashboard</Link>
             </li>
             <li className="nav-item">
-              <Link className={`nav-link ${styles.navLink}`} href="/History">Historys</Link>
+              <Link className={`nav-link ${styles.navLink}`} href="/History">History</Link>
             </li>
           </ul>
           <form className="d-flex align-items-center">

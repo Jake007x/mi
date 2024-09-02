@@ -38,7 +38,6 @@ export default function Dashboard() {
       const res = await fetch("/api/lastestData");
       const data = await res.json();
       setLastData(data);
-      console.log("Latest Data:", data);
     } catch (error) {
       console.error("Error fetching latest data:", error);
     }
@@ -49,7 +48,6 @@ export default function Dashboard() {
       const res = await fetch("/api/alldata");
       const data = await res.json();
       setAllData(data);
-      console.log("All Data:", data);
     } catch (error) {
       console.error("Error fetching all data:", error);
     }
@@ -60,7 +58,6 @@ export default function Dashboard() {
       const res = await fetch("/api/attackCount");
       const data = await res.json();
       setAttackCount(data.att);
-      console.log("Attack Count:", data.att);
     } catch (error) {
       console.error("Error fetching attack count:", error);
     }
@@ -71,10 +68,7 @@ export default function Dashboard() {
     datasets: lastData.map((dataPoint, index) => ({
       label: `Data Point ${index + 1}`,
       data: [dataPoint.ldr, dataPoint.vr],
-      backgroundColor: [
-        "rgba(75, 192, 192, 0.6)",
-        "rgba(153, 102, 255, 0.6)",
-      ],
+      backgroundColor: ["rgba(75, 192, 192, 0.6)", "rgba(153, 102, 255, 0.6)"],
     })),
   } : null;
 
@@ -83,10 +77,7 @@ export default function Dashboard() {
     datasets: lastData.map((dataPoint, index) => ({
       label: `Data Point ${index + 1}`,
       data: [dataPoint.temp, dataPoint.distance],
-      backgroundColor: [
-        "rgba(255, 159, 64, 0.6)",
-        "rgba(255, 99, 132, 0.6)",
-      ],
+      backgroundColor: ["rgba(255, 159, 64, 0.6)", "rgba(255, 99, 132, 0.6)"],
     })),
   } : null;
 
@@ -169,11 +160,8 @@ export default function Dashboard() {
   };
 
   function downloadCSV(data, filename) {
-    const csvData = data.map((row) =>
-      Object.values(row).join(",")
-    );
-    const csvContent =
-      "data:text/csv;charset=utf-8," + csvData.join("\n");
+    const csvData = data.map((row) => Object.values(row).join(","));
+    const csvContent = "data:text/csv;charset=utf-8," + csvData.join("\n");
     const encodedUri = encodeURI(csvContent);
     const link = document.createElement("a");
     link.setAttribute("href", encodedUri);
@@ -198,10 +186,8 @@ export default function Dashboard() {
   }, []);
 
   return (
-    <div className={`${styles.dashboard} container`}>
-      <h1 className={`${styles.heading} text-center my-4`}>
-        Dashboard
-      </h1>
+    <div className={`container ${styles.dashboard}`}>
+      <h1 className="text-center my-4">Dashboard</h1>
       <ul className="nav nav-tabs" id="chartTabs" role="tablist">
         <li className="nav-item" role="presentation">
           <button
@@ -324,41 +310,12 @@ export default function Dashboard() {
       </div>
 
       <div className={`${styles.attackCountContainer} my-4`}>
-        <h2 className="text-center">Number of Attacks</h2>
+        <h2 className="text-center">Mr. Thanawat Methapornprasit</h2>
         {attackCount !== null ? (
           <p className={`${styles.attackCount} text-center`}>{attackCount}</p>
         ) : (
-          <p>Loading attack data...</p>
+          <p className="text-center">นาย ธนวรรธน์ เมธาพรประสิทธิ์ </p>
         )}
-      </div>
-
-      <div className="text-center">
-        <button
-          className="btn btn-primary"
-          onClick={() => downloadCSV(lastData, "latest_data.csv")}
-        >
-          Download Latest Data as CSV
-        </button>
-      </div>
-
-      <h2 className={`${styles.heading} text-center my-4`}>
-        Latest Data
-      </h2>
-      <div className="table-responsive">
-        <table
-          className={`table table-striped table-bordered ${styles.table}`}
-        >
-          <thead className="thead-dark">
-            <tr>
-              <th>ID</th>
-              <th>LDR</th>
-              <th>VR</th>
-              <th>Temperature</th>
-              <th>Distance</th>
-              <th>Create At</th>
-            </tr>
-          </thead>
-        </table>
       </div>
     </div>
   );

@@ -1,7 +1,8 @@
 /* Dashboard.module.css */
+
 .dashboard {
   padding: 20px;
-  background-color: #cbdfc9; /* Slightly softer light green background */
+  background-image: linear-gradient(to right top, #218cb1, #669fc3, #93b2d3, #bac7e0, #dbdeed, #e2e2f4, #eae6fa, #f3eaff, #efd9ff, #eec7ff, #f0b4fb, #f49ff4);
   min-height: 100vh;
 }
 
@@ -134,4 +135,35 @@
     width: 100%;
     margin-bottom: 25px;
   }
+}
+
+.dashboard {
+  padding: 20px;
+  background-color: #7ebeff;
+}
+
+.heading {
+  font-size: 2rem;
+  color: #0080ff;
+}
+
+.chartContainer {
+  margin-top: 20px;
+}
+
+.attackCountContainer {
+  background-image: linear-gradient(to right bottom, #ff8b8b, #f799d2, #c3b7ff, #7bd4ff, #60e7fb);
+  border: 1px solid #000000;
+  padding: 20px;
+  border-radius: 5px;
+}
+
+.attackCount {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #ffffff;
+}
+
+.table {
+  margin-top: 20px;
 }
